@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Emergency Service Directory</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+
+  <!-- Navbar -->
+  <header class="sticky top-0 z-50 w-full border-b border-gray-200 bg-[#014421] bg-white">
+    <div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
+      <!-- Left: Logo + Name -->
+      <div class="flex items-center gap-2">
+        <img src="assets/logo.png" alt="Logo" class="h-9 w-9 rounded-full" />
+        <span class="text-lg font-bold leading-tight">Emergency <br> Service</span>
+      </div>
+
+      <!-- Right: Heart, Coins, Copy Count -->
+    <div class="flex items-center gap-4">
+  <div class="flex items-center gap-1">
+    <img src="assets/heart.png" alt="Love" class="w-6 h-6" />
+    <span class="font-semibold">0</span>
+  </div>
+  <div class="flex items-center gap-1">
+    <img src="assets/coin.png" alt="Coin" class="w-6 h-6" />
+    <span class="font-semibold">100</span>
+  </div>
+<div class="flex items-center gap-1">
+  <button class="flex items-center gap-2 px-4 py-2 bg-green-500 text-white font-semibold rounded hover:bg-green-600">    Copy <span id="copyCount">0</span>
+  </button>
+</div>
+</div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+<section class="relative flex flex-col items-center justify-center min-h-[40vh] text-center text-white bg-[#014421] px-4">
+  <img src="assets/logo-dark.png" alt="Hero Logo" class="mb-4 w-20" />
+  <h1 class="text-3xl font-bold mb-2">Emergency Service Directory</h1>
+  <p class="text-sm max-w-full whitespace-nowrap overflow-x-auto">
+    Government Emergency Services at Your Fingertips — A Project by the Government of the People’s Republic of Bangladesh
+  </p>
+</section>
+
+
+
+</body>
+</html>
