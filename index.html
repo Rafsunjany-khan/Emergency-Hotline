@@ -7,6 +7,14 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 </head>
+<style>
+/* Make copy button dark black on hover */
+.copyBtn:hover {
+  background-color: #000000; /* solid black */
+  color: #ffffff; /* text white for contrast */
+  cursor: pointer;
+}
+</style>
 <body class="bg-gray-100">
 
   <!-- Navbar -->
@@ -22,14 +30,14 @@
     <div class="flex items-center gap-4">
   <div class="flex items-center gap-1">
     <img src="assets/heart.png" alt="Love" class="w-6 h-6" />
-    <span class="font-semibold">0</span>
+    <span id="heartCount" class="font-semibold">0</span>
   </div>
   <div class="flex items-center gap-1">
     <img src="assets/coin.png" alt="Coin" class="w-6 h-6" />
-    <span class="font-semibold">100</span>
-  </div>
+<span id="coinCount" class="font-semibold">100</span>  </div>
 <div class="flex items-center gap-1">
-  <button class="flex items-center gap-2 px-4 py-2 bg-green-500 text-white font-semibold rounded hover:bg-green-600">    Copy <span id="copyCount">0</span>
+  <button class="flex items-center gap-2 px-4 py-2 bg-green-500 text-white font-semibold rounded hover:bg-green-600"> Copy
+    <span id="copyCount">0</span>
   </button>
 </div>
 </div>
@@ -52,8 +60,8 @@
 
       <!-- Card 1 -->
       <div class="bg-white rounded-xl shadow p-4 flex flex-col justify-between relative">
-        <button class="absolute top-4 right-4">
-          <img src="assets/heart.png" alt="heart" class="w-6 h-6" />
+        <button class="absolute top-4 right-4 heartBtn">
+          <i class="fa-regular fa-heart text-black text-3xl heartIcon"></i>
         </button>
         <div>
           <img src="assets/emergency.png" class="mb-2 w-10 h-10" alt="icon" />
@@ -63,20 +71,21 @@
           <span class="bg-gray-100 text-gray-800 text-xs px-2 py-1 rounded">All</span>
         </div>
         <div class="flex justify-center gap-4 mt-4">
-          <button class="flex items-center gap-2 bg-gray-100 px-5 py-2 rounded w-full justify-center">
-            <i class="fa-regular fa-copy"></i> Copy
-          </button>
-          <button class="flex items-center gap-2 bg-green-600 text-white px-5 py-2 rounded w-full justify-center">
-            <i class="fa-solid fa-phone"></i> Call
-          </button>
+<button class="flex items-center gap-2 bg-gray-100 px-5 py-2 rounded w-full justify-center copyBtn"
+        data-number="999">
+  <i class="fa-regular fa-copy"></i> Copy
+</button>
+        <button class="flex items-center gap-2 bg-green-600 text-white px-5 py-2 rounded w-full justify-center callBtn"
+        data-name="National Emergency Service" data-number="999"> <i class="fa-solid fa-phone"></i> Call
+        </button>
         </div>
       </div>
 
       <!-- Card 2 -->
       <div class="bg-white rounded-xl shadow p-4 flex flex-col justify-between relative">
-        <button class="absolute top-4 right-4">
-          <img src="assets/heart.png" alt="heart" class="w-6 h-6" />
-        </button>
+        <button class="absolute top-4 right-4 heartBtn">
+  <i class="fa-regular fa-heart text-black text-3xl heartIcon"></i>
+</button>
         <div>
           <img src="assets/police.png" class="mb-2 w-10 h-10" alt="icon" />
           <h3 class="font-bold text-lg">Police Helpline Number</h3>
@@ -85,20 +94,21 @@
           <span class="bg-gray-100 text-gray-800 text-xs px-2 py-1 rounded">Police</span>
         </div>
         <div class="flex justify-center gap-4 mt-4">
-          <button class="flex items-center gap-2 bg-gray-100 px-5 py-2 rounded w-full justify-center">
-            <i class="fa-regular fa-copy"></i> Copy
-          </button>
-          <button class="flex items-center gap-2 bg-green-600 text-white px-5 py-2 rounded w-full justify-center">
-            <i class="fa-solid fa-phone"></i> Call
-          </button>
-        </div>
+<button class="flex items-center gap-2 bg-gray-100 px-5 py-2 rounded w-full justify-center copyBtn" data-number="999">
+  <i class="fa-regular fa-copy"></i> Copy
+</button>
+          <button class="flex items-center gap-2 bg-green-600 text-white px-5 py-2 rounded w-full justify-center callBtn"
+        data-name="Police Helpline Number" data-number="999">
+    <i class="fa-solid fa-phone"></i> Call
+</button>
+      </div>
       </div>
 
       <!-- Card 3 -->
       <div class="bg-white rounded-xl shadow p-4 flex flex-col justify-between relative">
-        <button class="absolute top-4 right-4">
-          <img src="assets/heart.png" alt="heart" class="w-6 h-6" />
-        </button>
+        <button class="absolute top-4 right-4 heartBtn">
+  <i class="fa-regular fa-heart text-black text-3xl heartIcon"></i>
+</button>
         <div>
           <img src="assets/fire-service.png" class="mb-2 w-10 h-10" alt="icon" />
           <h3 class="font-bold text-lg">Fire Service Number</h3>
@@ -107,20 +117,19 @@
           <span class="bg-gray-100 text-gray-800 text-xs px-2 py-1 rounded">Fire</span>
         </div>
         <div class="flex justify-center gap-4 mt-4">
-          <button class="flex items-center gap-2 bg-gray-100 px-5 py-2 rounded w-full justify-center">
-            <i class="fa-regular fa-copy"></i> Copy
-          </button>
-          <button class="flex items-center gap-2 bg-green-600 text-white px-5 py-2 rounded w-full justify-center">
-            <i class="fa-solid fa-phone"></i> Call
-          </button>
-        </div>
+<button class="flex items-center gap-2 bg-gray-100 px-5 py-2 rounded w-full justify-center copyBtn" data-number="999">
+  <i class="fa-regular fa-copy"></i> Copy
+</button><button class="flex items-center gap-2 bg-green-600 text-white px-5 py-2 rounded w-full justify-center callBtn"
+        data-name="Fire Service Number" data-number="999">
+    <i class="fa-solid fa-phone"></i> Call
+</button>        </div>
       </div>
 
       <!-- Card 4 -->
       <div class="bg-white rounded-xl shadow p-4 flex flex-col justify-between relative">
-        <button class="absolute top-4 right-4">
-          <img src="assets/heart.png" alt="heart" class="w-6 h-6" />
-        </button>
+<button class="absolute top-4 right-4 heartBtn">
+  <i class="fa-regular fa-heart text-black text-3xl heartIcon"></i>
+</button>
         <div>
           <img src="assets/ambulance.png" class="mb-2 w-10 h-10" alt="icon" />
           <h3 class="font-bold text-lg">Ambulance Service</h3>
@@ -129,20 +138,21 @@
           <span class="bg-gray-100 text-gray-800 text-xs px-2 py-1 rounded">Health</span>
         </div>
         <div class="flex justify-center gap-4 mt-4">
-          <button class="flex items-center gap-2 bg-gray-100 px-5 py-2 rounded w-full justify-center">
-            <i class="fa-regular fa-copy"></i> Copy
-          </button>
-          <button class="flex items-center gap-2 bg-green-600 text-white px-5 py-2 rounded w-full justify-center">
-            <i class="fa-solid fa-phone"></i> Call
-          </button>
+          <button class="flex items-center gap-2 bg-gray-100 px-5 py-2 rounded w-full justify-center copyBtn" data-number="1994-999999">
+  <i class="fa-regular fa-copy"></i> Copy
+</button>
+          <button class="flex items-center gap-2 bg-green-600 text-white px-5 py-2 rounded w-full justify-center callBtn"
+        data-name="Ambulance Service" data-number="1994-999999">
+    <i class="fa-solid fa-phone"></i> Call
+</button>
         </div>
       </div>
 
       <!-- Card 5 -->
       <div class="bg-white rounded-xl shadow p-4 flex flex-col justify-between relative">
-        <button class="absolute top-4 right-4">
-          <img src="assets/heart.png" alt="heart" class="w-6 h-6" />
-        </button>
+<button class="absolute top-4 right-4 heartBtn">
+  <i class="fa-regular fa-heart text-black text-3xl heartIcon"></i>
+</button>
         <div>
           <img src="assets/emergency.png" class="mb-2 w-10 h-10" alt="icon" />
           <h3 class="font-bold text-lg">Women & Child Helpline</h3>
@@ -151,20 +161,21 @@
           <span class="bg-gray-100 text-gray-800 text-xs px-2 py-1 rounded">Help</span>
         </div>
         <div class="flex justify-center gap-4 mt-4">
-          <button class="flex items-center gap-2 bg-gray-100 px-5 py-2 rounded w-full justify-center">
-            <i class="fa-regular fa-copy"></i> Copy
-          </button>
-          <button class="flex items-center gap-2 bg-green-600 text-white px-5 py-2 rounded w-full justify-center">
-            <i class="fa-solid fa-phone"></i> Call
-          </button>
+          <button class="flex items-center gap-2 bg-gray-100 px-5 py-2 rounded w-full justify-center copyBtn" data-number="109">
+  <i class="fa-regular fa-copy"></i> Copy
+</button>
+          <button class="flex items-center gap-2 bg-green-600 text-white px-5 py-2 rounded w-full justify-center callBtn"
+        data-name="Women & Child Helpline" data-number="109">
+    <i class="fa-solid fa-phone"></i> Call
+</button>
         </div>
       </div>
 
       <!-- Card 6 -->
       <div class="bg-white rounded-xl shadow p-4 flex flex-col justify-between relative">
-        <button class="absolute top-4 right-4">
-          <img src="assets/heart.png" alt="heart" class="w-6 h-6" />
-        </button>
+<button class="absolute top-4 right-4 heartBtn">
+  <i class="fa-regular fa-heart text-black text-3xl heartIcon"></i>
+</button>
         <div>
           <img src="assets/emergency.png" class="mb-2 w-10 h-10" alt="icon" />
           <h3 class="font-bold text-lg">Anti-Corruption Helpline</h3>
@@ -173,20 +184,22 @@
           <span class="bg-gray-100 text-gray-800 text-xs px-2 py-1 rounded">Govt</span>
         </div>
         <div class="flex justify-center gap-4 mt-4">
-          <button class="flex items-center gap-2 bg-gray-100 px-5 py-2 rounded w-full justify-center">
-            <i class="fa-regular fa-copy"></i> Copy
-          </button>
-          <button class="flex items-center gap-2 bg-green-600 text-white px-5 py-2 rounded w-full justify-center">
-            <i class="fa-solid fa-phone"></i> Call
-          </button>
+          <button class="flex items-center gap-2 bg-gray-100 px-5 py-2 rounded w-full justify-center copyBtn" data-number="106">
+  <i class="fa-regular fa-copy"></i> Copy
+</button>
+         <button class="flex items-center gap-2 bg-green-600 text-white px-5 py-2 rounded w-full justify-center callBtn"
+        data-name="Anti-Corruption Helpline" data-number="106">
+    <i class="fa-solid fa-phone"></i> Call
+</button>
+
         </div>
       </div>
 
       <!-- Card 7 -->
       <div class="bg-white rounded-xl shadow p-4 flex flex-col justify-between relative">
-        <button class="absolute top-4 right-4">
-          <img src="assets/heart.png" alt="heart" class="w-6 h-6" />
-        </button>
+<button class="absolute top-4 right-4 heartBtn">
+  <i class="fa-regular fa-heart text-black text-3xl heartIcon"></i>
+</button>
         <div>
           <img src="assets/emergency.png" class="mb-2 w-10 h-10" alt="icon" />
           <h3 class="font-bold text-lg">Electricity Helpline</h3>
@@ -195,20 +208,21 @@
           <span class="bg-gray-100 text-gray-800 text-xs px-2 py-1 rounded">Electricity</span>
         </div>
         <div class="flex justify-center gap-4 mt-4">
-          <button class="flex items-center gap-2 bg-gray-100 px-5 py-2 rounded w-full justify-center">
-            <i class="fa-regular fa-copy"></i> Copy
-          </button>
-          <button class="flex items-center gap-2 bg-green-600 text-white px-5 py-2 rounded w-full justify-center">
-            <i class="fa-solid fa-phone"></i> Call
-          </button>
+          <button class="flex items-center gap-2 bg-gray-100 px-5 py-2 rounded w-full justify-center copyBtn" data-number="16216">
+  <i class="fa-regular fa-copy"></i> Copy
+</button>
+         <button class="flex items-center gap-2 bg-green-600 text-white px-5 py-2 rounded w-full justify-center callBtn"
+        data-name="Electricity Helpline" data-number="16216">
+    <i class="fa-solid fa-phone"></i> Call
+</button>
         </div>
       </div>
 
       <!-- Card 8 -->
       <div class="bg-white rounded-xl shadow p-4 flex flex-col justify-between relative">
-        <button class="absolute top-4 right-4">
-          <img src="assets/heart.png" alt="heart" class="w-6 h-6" />
-        </button>
+<button class="absolute top-4 right-4 heartBtn">
+  <i class="fa-regular fa-heart text-black text-3xl heartIcon"></i>
+</button>
         <div>
           <img src="assets/brac.png" class="mb-2 w-10 h-10" alt="icon" />
           <h3 class="font-bold text-lg">Brac Helpline</h3>
@@ -217,20 +231,21 @@
           <span class="bg-gray-100 text-gray-800 text-xs px-2 py-1 rounded">NGO</span>
         </div>
         <div class="flex justify-center gap-4 mt-4">
-          <button class="flex items-center gap-2 bg-gray-100 px-5 py-2 rounded w-full justify-center">
-            <i class="fa-regular fa-copy"></i> Copy
-          </button>
-          <button class="flex items-center gap-2 bg-green-600 text-white px-5 py-2 rounded w-full justify-center">
-            <i class="fa-solid fa-phone"></i> Call
-          </button>
+          <button class="flex items-center gap-2 bg-gray-100 px-5 py-2 rounded w-full justify-center copyBtn" data-number="16445">
+  <i class="fa-regular fa-copy"></i> Copy
+</button>
+          <button class="flex items-center gap-2 bg-green-600 text-white px-5 py-2 rounded w-full justify-center callBtn"
+        data-name="Brac Helpline" data-number="16445">
+    <i class="fa-solid fa-phone"></i> Call
+</button>
         </div>
       </div>
 
       <!-- Card 9 -->
       <div class="bg-white rounded-xl shadow p-4 flex flex-col justify-between relative">
-        <button class="absolute top-4 right-4">
-          <img src="assets/heart.png" alt="heart" class="w-6 h-6" />
-        </button>
+<button class="absolute top-4 right-4 heartBtn">
+  <i class="fa-regular fa-heart text-black text-3xl heartIcon"></i>
+</button>
         <div>
           <img src="assets/Bangladesh-Railway.png" class="mb-2 w-10 h-10" alt="icon" />
           <h3 class="font-bold text-lg">Bangladesh Railway Helpline</h3>
@@ -239,12 +254,13 @@
           <span class="bg-gray-100 text-gray-800 text-xs px-2 py-1 rounded">Travel</span>
         </div>
         <div class="flex justify-center gap-4 mt-4">
-          <button class="flex items-center gap-2 bg-gray-100 px-5 py-2 rounded w-full justify-center">
-            <i class="fa-regular fa-copy"></i> Copy
-          </button>
-          <button class="flex items-center gap-2 bg-green-600 text-white px-5 py-2 rounded w-full justify-center">
-            <i class="fa-solid fa-phone"></i> Call
-          </button>
+          <button class="flex items-center gap-2 bg-gray-100 px-5 py-2 rounded w-full justify-center copyBtn" data-number="163">
+  <i class="fa-regular fa-copy"></i> Copy
+</button>
+          <button class="flex items-center gap-2 bg-green-600 text-white px-5 py-2 rounded w-full justify-center callBtn"
+        data-name="Bangladesh Railway Helpline" data-number="163">
+    <i class="fa-solid fa-phone"></i> Call
+</button>
         </div>
       </div>
 
@@ -261,16 +277,177 @@
       Clear
     </button>
   </div>
-  <ul class="space-y-2 text-sm text-gray-700">
-    <li class="bg-gray-100 px-3 py-2 rounded">Fire Service - 101</li>
-    <li class="bg-gray-100 px-3 py-2 rounded">Ambulance - 102</li>
-    <li class="bg-gray-100 px-3 py-2 rounded">Police - 100</li>
-    <li class="bg-gray-100 px-3 py-2 rounded">Women Helpline - 109</li>
+  <ul id="historyList" class="space-y-2 text-sm text-gray-700">
+
   </ul>
 </div>
 
   </div>
 </main>
+
+
+<script>
+let heartCount = 0;
+let coinCount = 100;
+let copyCount = 0;
+
+const heartEl = document.getElementById('heartCount');
+const coinEl = document.getElementById('coinCount');
+const copyEl = document.getElementById('copyCount');
+const historyList = document.getElementById('historyList');
+
+// Heart button functionality
+document.querySelectorAll('.heartBtn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    heartCount++;
+    heartEl.textContent = heartCount;
+  });
+});
+
+// Copy button functionality
+document.querySelectorAll('.copyBtn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const number = btn.getAttribute('data-number');
+    if (!number) {
+      alert('No number to copy!');
+      return;
+    }
+
+    navigator.clipboard.writeText(number).then(() => {
+      copyCount++;
+      copyEl.textContent = copyCount;
+      alert('Number copied: ' + number);
+    }).catch(() => {
+      alert('Failed to copy number');
+    });
+  });
+
+  // Dark hover effect
+  btn.addEventListener('mouseenter', () => {
+    btn.style.backgroundColor = '#111';
+    btn.style.color = '#fff';
+  });
+  btn.addEventListener('mouseleave', () => {
+    btn.style.backgroundColor = '#f3f4f6'; // Tailwind gray-100
+    btn.style.color = '#000';
+  });
+});
+
+// Call button functionality
+document.querySelectorAll('.callBtn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const name = btn.getAttribute('data-name') || 'Unknown';
+    const number = btn.getAttribute('data-number') || 'Unknown';
+
+    // Check coins
+    if (coinCount < 20) {
+      alert('Not enough coins to make a call!');
+      return;
+    }
+
+    // Deduct coins
+    coinCount -= 20;
+    coinEl.textContent = coinCount;
+
+    // Alert for calling
+    alert(`Calling ${name} at ${number}`);
+
+    // Get current timestamp
+    const now = new Date();
+    const time = now.getHours().toString().padStart(2,'0') + ':' +
+                 now.getMinutes().toString().padStart(2,'0') + ':' +
+                 now.getSeconds().toString().padStart(2,'0');
+
+    // Add to call history
+    const li = document.createElement('li');
+    li.innerHTML = `
+      <div class="flex justify-between">
+        <span class="font-semibold">${name}</span>
+        <span class="text-gray-500">${time}</span>
+      </div>
+      <div class="text-gray-700">${number}</div>
+    `;
+    historyList.appendChild(li);
+  });
+});
+
+// Clear history functionality
+document.querySelector('#clearHistory')?.addEventListener('click', () => {
+  historyList.innerHTML = '';
+});
+</script>
+
+
+<!--<script>-->
+<!--let heartCount = 0;-->
+<!--let coinCount = 100;-->
+<!--let copyCount = 0;-->
+
+<!--const heartEl = document.getElementById('heartCount');-->
+<!--const coinEl = document.getElementById('coinCount');-->
+<!--const copyEl = document.getElementById('copyCount');-->
+<!--const historyList = document.getElementById('historyList');-->
+
+<!--// Heart button functionality-->
+<!--document.querySelectorAll('.heartBtn').forEach(btn => {-->
+<!--  btn.addEventListener('click', () => {-->
+<!--    heartCount++;-->
+<!--    heartEl.textContent = heartCount;-->
+<!--  });-->
+<!--});-->
+
+<!--// Copy button functionality-->
+<!--document.querySelectorAll('.copyBtn').forEach(btn => {-->
+<!--  btn.addEventListener('click', () => {-->
+<!--    copyCount++;-->
+<!--    copyEl.textContent = copyCount;-->
+<!--    const number = btn.closest('.card')?.querySelector('h1')?.innerText || '';-->
+<!--    navigator.clipboard.writeText(number);-->
+<!--    alert('Number copied: ' + number);-->
+<!--  });-->
+<!--});-->
+
+<!--// Call button functionality-->
+<!--document.querySelectorAll('.callBtn').forEach(btn => {-->
+<!--  btn.addEventListener('click', () => {-->
+<!--    const name = btn.getAttribute('data-name') || 'Unknown';-->
+<!--    const number = btn.getAttribute('data-number') || 'Unknown';-->
+
+<!--    if (coinCount < 20) {-->
+<!--      alert('Not enough coins to make a call!');-->
+<!--      return;-->
+<!--    }-->
+
+<!--    alert(`Calling ${name} at ${number}`);-->
+<!--    coinCount -= 20;-->
+<!--    coinEl.textContent = coinCount;-->
+
+<!--    // Get current time-->
+<!--    const now = new Date();-->
+<!--    const time = now.getHours().toString().padStart(2, '0') + ':' +-->
+<!--                 now.getMinutes().toString().padStart(2, '0') + ':' +-->
+<!--                 now.getSeconds().toString().padStart(2, '0');-->
+
+<!--    // Add styled history entry-->
+<!--    const li = document.createElement('li');-->
+<!--    li.innerHTML = `-->
+<!--      <div class="flex justify-between">-->
+<!--        <span class="font-semibold">${name}</span>-->
+<!--        <span class="text-gray-500">${time}</span>-->
+<!--      </div>-->
+<!--      <div class="text-gray-700">${number}</div>-->
+<!--    `;-->
+<!--    historyList.appendChild(li);-->
+<!--  });-->
+<!--});-->
+
+<!--// Clear history functionality-->
+<!--document.getElementById('clearHistory')?.addEventListener('click', () => {-->
+<!--  historyList.innerHTML = '';-->
+<!--});-->
+<!--</script>-->
+</body>
+</html>
 
 
 </body>
