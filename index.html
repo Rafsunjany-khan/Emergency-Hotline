@@ -354,7 +354,7 @@ document.querySelectorAll('.callBtn').forEach(btn => {
 
     // Check coins
     if (coinCount < 20) {
-      alert('Not enough coins to make a call!');
+      alert('❌ Not enough coins to make a call!');
       return;
     }
 
@@ -363,7 +363,7 @@ document.querySelectorAll('.callBtn').forEach(btn => {
     coinEl.textContent = coinCount;
 
     // Alert for calling
-    alert(`Calling ${name} at ${number}`);
+    alert(`📞 Calling ${name} at ${number}`);
 
     // Get current timestamp
     const now = new Date();
